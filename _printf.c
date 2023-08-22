@@ -12,6 +12,7 @@ int _printf(const char * const format, ...)
        {"%c", printf_char},
        {"%x", printf_hex},
        {"%b", printf_bin},
+       {"%i", printf_int},
 
     };
 
