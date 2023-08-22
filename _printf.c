@@ -16,7 +16,9 @@ int _printf(const char * const format, ...)
        {"%s", printf_string},
        {"%d", printf_dec},
        {"%r", printf_srev},
-       {"%R", printf_rot13}
+       {"%R", printf_rot13},
+       {"%u", printf_unsigned},
+       {"%o", printf_oct}
     };
 
     va_list args;
