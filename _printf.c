@@ -9,7 +9,8 @@ int _printf(const char * const format, ...)
 {
     convert_match m[] = {
         {"%X", printf_HEX},
-       {"%c", printf_char}
+       {"%c", printf_char},
+       {"%x", printf_hex},
     };
 
     va_list args;
