@@ -31,5 +31,5 @@ int printf_exclusive_string(va_list val);
 int printf_HEX_aux(unsigned int num);
 int printf_pointer(va_list val);
 int printf_hex_aux(unsigned long int num);
-int print_37(void);
+int printf_37(void);
 #endif

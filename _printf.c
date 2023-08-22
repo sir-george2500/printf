@@ -7,7 +7,10 @@
  */
 int _printf(const char * const format, ...)
 {
-    convert_match m[] = {
+    convert_match m[] = 
+    {
+
+	{"%%", printf_37},
        {"%X", printf_HEX},
        {"%c", printf_char},
        {"%x", printf_hex},
