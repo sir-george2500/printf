@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
@@ -7,55 +6,40 @@
  */
 int _printf(const char * const format, ...)
 {
-    convert_match m[] = 
-    {
+	convert_match m[] = {
+		{"%s", printf_string}, {"%c", printf_char},
+		{"%%", printf_37},
+		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
+		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
+		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
+	};
 
-	{"%%", printf_37},
-       {"%X", printf_HEX},
-       {"%c", printf_char},
-       {"%x", printf_hex},
-       {"%b", printf_bin},
-       {"%i", printf_int},
-       {"%s", printf_string},
-       {"%d", printf_dec},
-       {"%r", printf_srev},
-       {"%R", printf_rot13},
-       {"%u", printf_unsigned},
-       {"%o", printf_oct},
-       {"%S", printf_exclusive_string},
-       {"%p", printf_pointer}
-    };
+	va_list args;
+	int i = 0, j, len = 0;
 
-    va_list args;
-    int i = 0, len = 0;
+	va_start(args, format);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
 
-    va_start(args, format);
-    if (format == NULL)
-        return (-1);
-
-    while (format[i] != '\0')
-    {
-        if (format[i] == '%' && format[i + 1] != '\0')
-        {
-            int j = 0;
-            while (j < (int)(sizeof(m) / sizeof(m[0])))
-            {
-                if (m[j].id[0] == '%' && m[j].id[1] == format[i + 1])
-                {
-                    len += m[j].f(args);
-                    i += 2;
-                    break;
-                }
-                j++;
-            }
-        }
-        else
-        {
-            _putchar(format[i]);
-            len++;
-            i++;
-        }
-    }
-    va_end(args);
-    return (len);
+Here:
+	while (format[i] != '\0')
+	{
+		j = 13;
+		while (j >= 0)
+		{
+			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			{
+				len += m[j].f(args);
+				i = i + 2;
+				goto Here;
+			}
+			j--;
+		}
+		_putchar(format[i]);
+		len++;
+		i++;
+	}
+	va_end(args);
+	return (len);
 }
