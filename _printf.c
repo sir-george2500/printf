@@ -14,7 +14,8 @@ int _printf(const char * const format, ...)
        {"%b", printf_bin},
        {"%i", printf_int},
        {"%s", printf_string},
-       {"%d", printf_dec}
+       {"%d", printf_dec},
+       {"%r", printf_srev},
     };
 
     va_list args;
