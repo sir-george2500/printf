@@ -13,7 +13,7 @@ int _printf(const char * const format, ...)
        {"%x", printf_hex},
        {"%b", printf_bin},
        {"%i", printf_int},
-
+       {"%s", printf_string},
     };
 
     va_list args;
