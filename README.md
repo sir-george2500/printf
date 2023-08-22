@@ -11,8 +11,11 @@ The _printf() function works with a format string, which is a character string e
 
 This custom _printf() function is designed to replicate the basic functionality of the standard printf() function, providing an opportunity for learning about string formatting and manipulation in C programming.
 
+------------
 
 
+### Research Resources
 
+------------
 
-
+Secrets of printfby Don colton https://www.cypress.com/file/54761/download
