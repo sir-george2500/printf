@@ -8,8 +8,8 @@
 int _printf(const char * const format, ...)
 {
     convert_match m[] = {
-        {"%X", printf_HEX}
-        
+        {"%X", printf_HEX},
+       {"%c", printf_char}
     };
 
     va_list args;
