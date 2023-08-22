@@ -8,12 +8,13 @@
 int _printf(const char * const format, ...)
 {
     convert_match m[] = {
-        {"%X", printf_HEX},
+       {"%X", printf_HEX},
        {"%c", printf_char},
        {"%x", printf_hex},
        {"%b", printf_bin},
        {"%i", printf_int},
        {"%s", printf_string},
+       {"%d", printf_dec}
     };
 
     va_list args;
